@@ -12,13 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".NET", ".NET", "{A966A6B5-F44B-40EF-9AB3-A9E2C7BB3051}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XNA", "XNA", "{D0EB98DA-A67D-4617-82B5-771A1C5E0637}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monads", "Monads\Monads.csproj", "{FB51ADBC-033B-4B89-B2D1-2B02D0BE67F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monads.Tests", "Monads.Tests\Monads.Tests.csproj", "{EE1105E5-CE79-4C0D-AF44-3C2B184A3F91}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monads.XNA", "Monads.XNA\Monads.XNA.csproj", "{9DDD3E60-305E-457F-ADAD-223E504C9708}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,24 +56,9 @@ Global
 		{EE1105E5-CE79-4C0D-AF44-3C2B184A3F91}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{EE1105E5-CE79-4C0D-AF44-3C2B184A3F91}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{EE1105E5-CE79-4C0D-AF44-3C2B184A3F91}.Release|x86.ActiveCfg = Release|Any CPU
-		{9DDD3E60-305E-457F-ADAD-223E504C9708}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{9DDD3E60-305E-457F-ADAD-223E504C9708}.Debug|ARM.ActiveCfg = Debug|x86
-		{9DDD3E60-305E-457F-ADAD-223E504C9708}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{9DDD3E60-305E-457F-ADAD-223E504C9708}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{9DDD3E60-305E-457F-ADAD-223E504C9708}.Debug|x86.ActiveCfg = Debug|x86
-		{9DDD3E60-305E-457F-ADAD-223E504C9708}.Debug|x86.Build.0 = Debug|x86
-		{9DDD3E60-305E-457F-ADAD-223E504C9708}.Release|Any CPU.ActiveCfg = Release|x86
-		{9DDD3E60-305E-457F-ADAD-223E504C9708}.Release|ARM.ActiveCfg = Release|x86
-		{9DDD3E60-305E-457F-ADAD-223E504C9708}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{9DDD3E60-305E-457F-ADAD-223E504C9708}.Release|Mixed Platforms.Build.0 = Release|x86
-		{9DDD3E60-305E-457F-ADAD-223E504C9708}.Release|x86.ActiveCfg = Release|x86
-		{9DDD3E60-305E-457F-ADAD-223E504C9708}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{9DDD3E60-305E-457F-ADAD-223E504C9708} = {D0EB98DA-A67D-4617-82B5-771A1C5E0637}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Monads.vsmdi
