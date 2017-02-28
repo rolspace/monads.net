@@ -10,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".NET", ".NET", "{A966A6B5-F44B-40EF-9AB3-A9E2C7BB3051}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monads", "Monads\Monads.csproj", "{FB51ADBC-033B-4B89-B2D1-2B02D0BE67F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monads.Tests", "Monads.Tests\Monads.Tests.csproj", "{EE1105E5-CE79-4C0D-AF44-3C2B184A3F91}"
