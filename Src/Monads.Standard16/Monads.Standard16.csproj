@@ -4,4 +4,15 @@
     <TargetFramework>netstandard1.6</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Include="..\Monads\Actions.cs" Link="Actions.cs" />
+    <Compile Include="..\Monads\ArgumentCheck.cs" Link="ArgumentCheck.cs" />
+    <Compile Include="..\Monads\Events.cs" Link="Events.cs" />
+    <Compile Include="..\Monads\Maybe.IDictionary.cs" Link="Maybe.IDictionary.cs" />
+    <Compile Include="..\Monads\Maybe.IEnumerable.cs" Link="Maybe.IEnumerable.cs" />
+    <Compile Include="..\Monads\Maybe.Nullable.cs" Link="Maybe.Nullable.cs" />
+    <Compile Include="..\Monads\Maybe.Objects.cs" Link="Maybe.Objects.cs" />
+    <Compile Include="..\Monads\Tuple.cs" Link="Tuple.cs" />
+  </ItemGroup>
+
 </Project>
