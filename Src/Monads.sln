@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monads", "Monads\Monads.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monads.Tests", "Monads.Tests\Monads.Tests.csproj", "{EE1105E5-CE79-4C0D-AF44-3C2B184A3F91}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET Standard 1.6", "NET Standard 1.6", "{FAEA835D-2177-4020-BC00-940745FD7EED}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NETStandard 1.6", "NETStandard 1.6", "{FAEA835D-2177-4020-BC00-940745FD7EED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monads.Standard16", "Monads.Standard16\Monads.Standard16.csproj", "{D5308520-C508-411F-8CFE-4FBF0AF9F974}"
 EndProject
