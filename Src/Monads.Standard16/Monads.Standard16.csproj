@@ -22,8 +22,6 @@
     <Compile Include="..\Monads\Events.cs" Link="Events.cs" />
     <Compile Include="..\Monads\Maybe.IDictionary.cs" Link="Maybe.IDictionary.cs" />
     <Compile Include="..\Monads\Maybe.IEnumerable.cs" Link="Maybe.IEnumerable.cs" />
-    <Compile Include="..\Monads.Standard16\Maybe.Nullable.cs" />
-    <Compile Include="..\Monads.Standard16\Maybe.Objects.cs" />
     <Compile Include="..\Monads\Tuple.cs" Link="Tuple.cs" />
   </ItemGroup>
 
