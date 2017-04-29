@@ -1,15 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26403.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monads", "Monads\Monads.csproj", "{FB51ADBC-033B-4B89-B2D1-2B02D0BE67F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monads.Tests", "Monads.Tests\Monads.Tests.csproj", "{EE1105E5-CE79-4C0D-AF44-3C2B184A3F91}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NETStandard 1.6", "NETStandard 1.6", "{FAEA835D-2177-4020-BC00-940745FD7EED}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET Standard 1.6", "NET Standard 1.6", "{FAEA835D-2177-4020-BC00-940745FD7EED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monads.Standard16", "Monads.Standard16\Monads.Standard16.csproj", "{D5308520-C508-411F-8CFE-4FBF0AF9F974}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monads.NETStandard16", "Monads.NETStandard16\Monads.NETStandard16.csproj", "{6DCBF277-965A-4E47-98F9-6183BD9F5735}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,28 +51,28 @@ Global
 		{EE1105E5-CE79-4C0D-AF44-3C2B184A3F91}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{EE1105E5-CE79-4C0D-AF44-3C2B184A3F91}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{EE1105E5-CE79-4C0D-AF44-3C2B184A3F91}.Release|x86.ActiveCfg = Release|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Debug|ARM.Build.0 = Debug|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Debug|x86.Build.0 = Debug|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Release|ARM.ActiveCfg = Release|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Release|ARM.Build.0 = Release|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Release|x86.ActiveCfg = Release|Any CPU
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974}.Release|x86.Build.0 = Release|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Debug|ARM.Build.0 = Debug|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Debug|x86.Build.0 = Debug|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Release|ARM.ActiveCfg = Release|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Release|ARM.Build.0 = Release|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Release|x86.ActiveCfg = Release|Any CPU
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{D5308520-C508-411F-8CFE-4FBF0AF9F974} = {FAEA835D-2177-4020-BC00-940745FD7EED}
+		{6DCBF277-965A-4E47-98F9-6183BD9F5735} = {FAEA835D-2177-4020-BC00-940745FD7EED}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Monads.vsmdi
