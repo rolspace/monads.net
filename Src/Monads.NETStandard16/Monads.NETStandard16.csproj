@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.6</TargetFramework>
+    <Description>Monads for .NET library. http://monads.codeplex.com/</Description>
+    <Copyright>Copyright © Sergey Zwezdin 2011</Copyright>
+    <Product>Monads for .NET</Product>
+    <Company></Company>
+    <Authors />
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
+    <PackageId>Monads</PackageId>
+    <Version>1.2.0</Version>
+    <AssemblyName>Monads</AssemblyName>
+    <RootNamespace>System.Monads</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Monads\Actions.cs" Link="Actions.cs" />
+    <Compile Include="..\Monads\ArgumentCheck.cs" Link="ArgumentCheck.cs" />
+    <Compile Include="..\Monads\Events.cs" Link="Events.cs" />
+    <Compile Include="..\Monads\Maybe.IDictionary.cs" Link="Maybe.IDictionary.cs" />
+    <Compile Include="..\Monads\Maybe.IEnumerable.cs" Link="Maybe.IEnumerable.cs" />
+    <Compile Include="..\Monads\Tuple.cs" Link="Tuple.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
+  </ItemGroup>
+
+</Project>
