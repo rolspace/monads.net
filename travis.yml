@@ -1,0 +1,9 @@
+language: csharp
+solution: ./Src/Monads.sln
+dotnet: 1.0.3
+dist: trusty
+branches:
+  only:
+    - feature/addtravisbuild
+git:
+  depth: 3
