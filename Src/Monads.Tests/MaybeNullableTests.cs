@@ -169,7 +169,7 @@ namespace System.Monads.Tests
 		{
 			int? source = 1;
 
-			var result = source.TryDo(s => (100 / (s - 1)).ToString(), typeof(DivideByZeroException), typeof(ArgumentException));
+			var result = source.TryDo(s => (100 / (s - 1)).ToString(), new Type[] { typeof(DivideByZeroException), typeof(ArgumentException) });
 
 			Assert.AreEqual(source, result.Item1);
 			Assert.IsInstanceOfType(result.Item2, typeof(DivideByZeroException));
@@ -182,7 +182,7 @@ namespace System.Monads.Tests
 			{
 				int? source = 1;
 
-				var result = source.TryDo(s => (100 / (s - 1)).ToString(), typeof(OutOfMemoryException), typeof(ArgumentException));
+				var result = source.TryDo(s => (100 / (s - 1)).ToString(), new Type[] { typeof(OutOfMemoryException), typeof(ArgumentException) });
 
 				Assert.Fail("Exception must be thrown.");
 			}
