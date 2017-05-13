@@ -1,0 +1,11 @@
+language: csharp
+solution: ./Src/Monads.XBuild.sln
+dotnet: 1.0.3
+dist: trusty
+install:
+  - nuget restore ./Src/Monads.XBuild.sln
+script:
+  - xbuild /p:Configuration=Release ./Src/Monads.XBuild.sln
+  - mono ./Src/packages/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe ./Src/Monads.Tests/bin/Release/Monads.Tests.dll
+git:
+  depth: 3
