@@ -7,8 +7,5 @@ install:
 script:
   - xbuild /p:Configuration=Release ./Src/Monads.XBuild.sln
   - mono ./Src/packages/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe ./Src/Monads.Tests/bin/Release/Monads.Tests.dll
-branches:
-  only:
-    - feature/addtravisbuild
 git:
   depth: 3
