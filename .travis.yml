@@ -2,6 +2,12 @@ language: csharp
 solution: ./Src/Monads.XBuild.sln
 dotnet: 1.0.3
 dist: trusty
+install:
+  - nuget restore ./Src/Monads.XBuild.sln
+  - nuget install NUnit.Console -Version 3.6.1 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release ./Src/Monads.XBuild.sln
+  - mono ./testrunner/NUnit.Console.3.6.1/tools/nunit-console.exe ./Src/Monads.Tests/bin/Release/Monads.Tests.dll
 branches:
   only:
     - feature/addtravisbuild
