@@ -1,68 +1,68 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace System.Monads.Tests
 {
-	[TestClass]
-	public class ActionsTests
-	{
-		internal class ActionMock
-		{
-			public event Action TestAction;
+    [TestFixture]
+    public class ActionsTests
+    {
+        internal class ActionMock
+        {
+            public event Action TestAction;
 
-			public void InvokeAction()
-			{
-				TestAction.Execute();
-			}
-		}
-		
-		internal class ActionTMock<T> 
-		{
-			public event Action<T> TestAction;
+            public void InvokeAction()
+            {
+                TestAction.Execute();
+            }
+        }
 
-			public void InvokeAction(T arg)
-			{
-				TestAction.Execute(arg);
-			}
-		}
+        internal class ActionTMock<T>
+        {
+            public event Action<T> TestAction;
 
-		[TestMethod]
-		public void ExecuteNotGenericWithNull()
-		{
-			var eventMock = new ActionMock();
-			eventMock.InvokeAction();
-		}
+            public void InvokeAction(T arg)
+            {
+                TestAction.Execute(arg);
+            }
+        }
 
-		[TestMethod]
-		public void ExecuteNotGenericWithNotNull()
-		{
-			bool executed = false;
+        [Test]
+        public void ExecuteNotGenericWithNull()
+        {
+            var eventMock = new ActionMock();
+            eventMock.InvokeAction();
+        }
 
-			var eventMock = new ActionMock();
-			eventMock.TestAction += () => executed = true; 
+        [Test]
+        public void ExecuteNotGenericWithNotNull()
+        {
+            bool executed = false;
 
-			eventMock.InvokeAction();
+            var eventMock = new ActionMock();
+            eventMock.TestAction += () => executed = true;
 
-			Assert.IsTrue(executed);
-		}
-		
-		[TestMethod]
-		public void ExecuteGenericWithNull()
-		{
-			var eventMock = new ActionTMock<string>();
-			eventMock.InvokeAction("Test");
-		}
+            eventMock.InvokeAction();
 
-		[TestMethod]
-		public void ExecuteGenericWithNotNull()
-		{
-			var executed = false;
+            Assert.IsTrue(executed);
+        }
 
-			var eventMock = new ActionTMock<string>();
-			eventMock.TestAction += arg => executed = arg == "Test"; 
+        [Test]
+        public void ExecuteGenericWithNull()
+        {
+            var eventMock = new ActionTMock<string>();
+            eventMock.InvokeAction("Test");
+        }
 
-			eventMock.InvokeAction("Test");
+        [Test]
+        public void ExecuteGenericWithNotNull()
+        {
+            var executed = false;
 
-			Assert.IsTrue(executed);
-		}
-	}
+            var eventMock = new ActionTMock<string>();
+            eventMock.TestAction += arg => executed = arg == "Test";
+
+            eventMock.InvokeAction("Test");
+
+            Assert.IsTrue(executed);
+        }
+    }
 }

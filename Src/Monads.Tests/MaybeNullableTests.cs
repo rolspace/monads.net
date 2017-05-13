@@ -1,284 +1,282 @@
-﻿using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 
 namespace System.Monads.Tests
 {
-	[TestClass]
-	public class MaybeNullableTests
-	{
-		[TestMethod]
-		public void DoOnObjectWithValue()
-		{
-			int? source = 5;
+    [TestFixture]
+    public class MaybeNullableTests
+    {
+        [Test]
+        public void DoOnObjectWithValue()
+        {
+            int? source = 5;
 
-			var result = String.Empty;
-			source.Do(s => result = s.ToString());
+            var result = String.Empty;
+            source.Do(s => result = s.ToString());
 
-			Assert.AreEqual("5", result);
-		}
+            Assert.AreEqual("5", result);
+        }
 
-		[TestMethod]
-		public void DoOnObjectWithNull()
-		{
-			int? source = null;
+        [Test]
+        public void DoOnObjectWithNull()
+        {
+            int? source = null;
 
-			var result = String.Empty;
-			source.Do(s => result = s.ToString());
+            var result = String.Empty;
+            source.Do(s => result = s.ToString());
 
-			Assert.AreEqual(String.Empty, result);
-		}
+            Assert.AreEqual(String.Empty, result);
+        }
 
-		[TestMethod]
-		public void WithOnObjectWithValue()
-		{
-			int? source = 5;
+        [Test]
+        public void WithOnObjectWithValue()
+        {
+            int? source = 5;
 
-			var result = source.With(s => s.ToString());
+            var result = source.With(s => s.ToString());
 
-			Assert.AreEqual("5", result);
-		}
+            Assert.AreEqual("5", result);
+        }
 
-		[TestMethod]
-		public void WithOnObjectWithNull()
-		{
-			int? source = null;
+        [Test]
+        public void WithOnObjectWithNull()
+        {
+            int? source = null;
 
-			var result = source.With(s => s.ToString());
-
-			Assert.AreEqual(default(string), result);
-		}
+            var result = source.With(s => s.ToString());
+
+            Assert.AreEqual(default(string), result);
+        }
 
-		[TestMethod]
-		public void ReturnOnObjectWithValue()
-		{
-			int? source = 5;
-
-			var result = source.Return(s => s.ToString(), "Nothing");
+        [Test]
+        public void ReturnOnObjectWithValue()
+        {
+            int? source = 5;
+
+            var result = source.Return(s => s.ToString(), "Nothing");
 
-			Assert.AreEqual("5", result);
-		}
-
-		[TestMethod]
-		public void ReturnOnObjectWithNull()
-		{
-			int? source = null;
+            Assert.AreEqual("5", result);
+        }
+
+        [Test]
+        public void ReturnOnObjectWithNull()
+        {
+            int? source = null;
 
-			var result = source.Return(s => s.ToString(), "Nothing");
+            var result = source.Return(s => s.ToString(), "Nothing");
 
-			Assert.AreEqual("Nothing", result);
-		}
+            Assert.AreEqual("Nothing", result);
+        }
 
-		[TestMethod]
-		public void IfOnObjectWithValue()
-		{
-			int? source = 5;
+        [Test]
+        public void IfOnObjectWithValue()
+        {
+            int? source = 5;
 
-			Assert.AreEqual(source, source.If(s => s.Value > 3));
-			Assert.AreEqual(default(int), source.If(s => s.Value > 6));
-		}
+            Assert.AreEqual(source, source.If(s => s.Value > 3));
+            Assert.AreEqual(default(int), source.If(s => s.Value > 6));
+        }
 
-		[TestMethod]
-		public void IfOnObjectWithNull()
-		{
-			int? source = null;
-
-			Assert.AreEqual(default(int), source.If(s => s.Value > 3));
-			Assert.AreEqual(default(int), source.If(s => s.Value > 6));
-		}
+        [Test]
+        public void IfOnObjectWithNull()
+        {
+            int? source = null;
+
+            Assert.AreEqual(default(int), source.If(s => s.Value > 3));
+            Assert.AreEqual(default(int), source.If(s => s.Value > 6));
+        }
 
-		[TestMethod]
-		public void IfNotOnObjectWithValue()
-		{
-			int? source = 5;
-
-			Assert.AreEqual(default(int), source.IfNot(s => s.Value > 3));
-			Assert.AreEqual(source, source.IfNot(s => s.Value > 6));
-		}
+        [Test]
+        public void IfNotOnObjectWithValue()
+        {
+            int? source = 5;
+
+            Assert.AreEqual(default(int), source.IfNot(s => s.Value > 3));
+            Assert.AreEqual(source, source.IfNot(s => s.Value > 6));
+        }
+
+        [Test]
+        public void IfNotOnObjectWithNull()
+        {
+            int? source = null;
 
-		[TestMethod]
-		public void IfNotOnObjectWithNull()
-		{
-			int? source = null;
+            Assert.AreEqual(default(int), source.IfNot(s => s.Value > 3));
+            Assert.AreEqual(default(int), source.IfNot(s => s.Value > 6));
+        }
 
-			Assert.AreEqual(default(int), source.IfNot(s => s.Value > 3));
-			Assert.AreEqual(default(int), source.IfNot(s => s.Value > 6));
-		}
+        [Test]
+        public void RecoverOnObjectWithNull()
+        {
+            int? source = null;
+
+            var result = source.Recover(() => 10);
 
-		[TestMethod]
-		public void RecoverOnObjectWithNull()
-		{
-			int? source = null;
+            Assert.AreEqual(10, result);
+        }
 
-			var result = source.Recover(() => 10);
+        [Test]
+        public void TryDoOnObjectWithValueNoException()
+        {
+            int? source = 5;
 
-			Assert.AreEqual(10, result);
-		}
+            var r = String.Empty;
+            var result = source.TryDo(s => r = s.ToString());
 
-		[TestMethod]
-		public void TryDoOnObjectWithValueNoException()
-		{
-			int? source = 5;
+            Assert.AreEqual("5", r);
+            Assert.AreEqual(source, result.Item1);
+            Assert.AreEqual(null, result.Item2);
+        }
 
-			var r = String.Empty;
-			var result = source.TryDo(s => r = s.ToString());
+        [Test]
+        public void TryDoOnObjectWithNullNoException()
+        {
+            int? source = null;
 
-			Assert.AreEqual("5", r);
-			Assert.AreEqual(source, result.Item1);
-			Assert.AreEqual(null, result.Item2);
-		}
+            var r = String.Empty;
+            var result = source.TryDo(s => r = s.ToString());
 
-		[TestMethod]
-		public void TryDoOnObjectWithNullNoException()
-		{
-			int? source = null;
+            Assert.AreEqual(String.Empty, r);
+            Assert.AreEqual(null, result.Item1);
+            Assert.AreEqual(null, result.Item2);
+        }
+
+        [Test]
+        public void TryDoOnObjectWithException()
+        {
+            int? source = 1;
+
+            var r = String.Empty;
+            var result = source.TryDo(s => r = (100 / (s - 1)).ToString());
 
-			var r = String.Empty;
-			var result = source.TryDo(s => r = s.ToString());
+            Assert.AreEqual(String.Empty, r);
+            Assert.AreEqual(source, result.Item1);
+            Assert.IsInstanceOf(typeof(DivideByZeroException), result.Item2);
+        }
+
+        [Test]
+        public void TryDoOnObjectWithExceptionImplicitLambda()
+        {
+            int? source = 1;
 
-			Assert.AreEqual(String.Empty, r);
-			Assert.AreEqual(null, result.Item1);
-			Assert.AreEqual(null, result.Item2);
-		}
+            var result = source.TryDo(s => (100 / (s - 1)).ToString(), ex => ex is DivideByZeroException);
 
-		[TestMethod]
-		public void TryDoOnObjectWithException()
-		{
-			int? source = 1;
-
-			var r = String.Empty;
-			var result = source.TryDo(s => r = (100 / (s - 1)).ToString());
+            Assert.AreEqual(source, result.Item1);
+            Assert.IsInstanceOf(typeof(DivideByZeroException), result.Item2);
+        }
 
-			Assert.AreEqual(String.Empty, r);
-			Assert.AreEqual(source, result.Item1);
-			Assert.IsInstanceOfType(result.Item2, typeof(DivideByZeroException));
-		}
+        [Test]
+        public void TryDoOnObjectWithExceptionImplicitArray()
+        {
+            int? source = 1;
 
-		[TestMethod]
-		public void TryDoOnObjectWithExceptionImplicitLambda()
-		{
-			int? source = 1;
+            var result = source.TryDo(s => (100 / (s - 1)).ToString(), new Type[] { typeof(DivideByZeroException), typeof(ArgumentException) });
 
-			var result = source.TryDo(s => (100 / (s - 1)).ToString(), ex => ex is DivideByZeroException);
+            Assert.AreEqual(source, result.Item1);
+            Assert.IsInstanceOf(typeof(DivideByZeroException), result.Item2);
+        }
 
-			Assert.AreEqual(source, result.Item1);
-			Assert.IsInstanceOfType(result.Item2, typeof(DivideByZeroException));
-		}
+        [Test]
+        public void TryDoOnObjectWithExceptionImplicitArrayFails()
+        {
+            try
+            {
+                int? source = 1;
 
-		[TestMethod]
-		public void TryDoOnObjectWithExceptionImplicitArray()
-		{
-			int? source = 1;
+                var result = source.TryDo(s => (100 / (s - 1)).ToString(), new Type[] { typeof(OutOfMemoryException), typeof(ArgumentException) });
 
-			var result = source.TryDo(s => (100 / (s - 1)).ToString(), new Type[] { typeof(DivideByZeroException), typeof(ArgumentException) });
+                Assert.Fail("Exception must be thrown.");
+            }
+            catch (DivideByZeroException)
+            {
+            }
+        }
 
-			Assert.AreEqual(source, result.Item1);
-			Assert.IsInstanceOfType(result.Item2, typeof(DivideByZeroException));
-		}
+        [Test]
+        public void TryWithOnObjectWithException()
+        {
+            int? source = 1;
 
-		[TestMethod]
-		public void TryDoOnObjectWithExceptionImplicitArrayFails()
-		{
-			try
-			{
-				int? source = 1;
+            var result = source.TryWith(s => (100 / (s - 1)).ToString());
 
-				var result = source.TryDo(s => (100 / (s - 1)).ToString(), new Type[] { typeof(OutOfMemoryException), typeof(ArgumentException) });
+            Assert.AreEqual(null, result.Item1);
+            Assert.IsInstanceOf(typeof(DivideByZeroException), result.Item2);
+        }
 
-				Assert.Fail("Exception must be thrown.");
-			}
-			catch (DivideByZeroException)
-			{
-			}
-		}
+        [Test]
+        public void TryWithOnObjectWithExceptionLambda()
+        {
+            int? source = 1;
 
+            var result = source.TryWith(s => (100 / (s - 1)).ToString(), ex => ex is DivideByZeroException);
 
-		[TestMethod]
-		public void TryWithOnObjectWithException()
-		{
-			int? source = 1;
+            Assert.AreEqual(null, result.Item1);
+            Assert.IsInstanceOf(typeof(DivideByZeroException), result.Item2);
+        }
 
-			var result = source.TryWith(s => (100 / (s - 1)).ToString());
+        [Test]
+        public void TryWithOnObjectWithExceptionImplicitArray()
+        {
+            int? source = 1;
 
-			Assert.AreEqual(null, result.Item1);
-			Assert.IsInstanceOfType(result.Item2, typeof(DivideByZeroException));
-		}
+            var result = source.TryWith(s => (100 / (s - 1)).ToString(), typeof(DivideByZeroException));
 
-		[TestMethod]
-		public void TryWithOnObjectWithExceptionLambda()
-		{
-			int? source = 1;
+            Assert.AreEqual(null, result.Item1);
+            Assert.IsInstanceOf(typeof(DivideByZeroException), result.Item2);
+        }
 
-			var result = source.TryWith(s => (100 / (s - 1)).ToString(), ex => ex is DivideByZeroException);
+        [Test]
+        public void TryWithOnObjectWithExceptionImplicitArrayFails()
+        {
+            try
+            {
+                int? source = 1;
 
-			Assert.AreEqual(null, result.Item1);
-			Assert.IsInstanceOfType(result.Item2, typeof(DivideByZeroException));
-		}
+                var result = source.TryWith(s => (100 / (s - 1)).ToString(), typeof(OutOfMemoryException));
 
-		[TestMethod]
-		public void TryWithOnObjectWithExceptionImplicitArray()
-		{
-			int? source = 1;
+                Assert.Fail("Exception must be thrown.");
+            }
+            catch (DivideByZeroException)
+            {
+            }
+        }
 
-			var result = source.TryWith(s => (100 / (s - 1)).ToString(), typeof(DivideByZeroException));
+        [Test]
+        public void IsNullTrue()
+        {
+            int? source = null;
 
-			Assert.AreEqual(null, result.Item1);
-			Assert.IsInstanceOfType(result.Item2, typeof(DivideByZeroException));
-		}
+            var result = source.IsNull();
 
-		[TestMethod]
-		public void TryWithOnObjectWithExceptionImplicitArrayFails()
-		{
-			try
-			{
-				int? source = 1;
+            Assert.AreEqual(true, result);
+        }
 
-				var result = source.TryWith(s => (100 / (s - 1)).ToString(), typeof(OutOfMemoryException));
+        [Test]
+        public void IsNullFalse()
+        {
+            int? source = 5;
 
-				Assert.Fail("Exception must be thrown.");
-			}
-			catch (DivideByZeroException)
-			{
-			}
-		}
+            var result = source.IsNull();
 
-		[TestMethod]
-		public void IsNullTrue()
-		{
-			int? source = null;
+            Assert.AreEqual(false, result);
+        }
 
-			var result = source.IsNull();
+        [Test]
+        public void IsNotNullTrue()
+        {
+            int? source = 5;
 
-			Assert.AreEqual(true, result);
-		}
+            var result = source.IsNotNull();
 
-		[TestMethod]
-		public void IsNullFalse()
-		{
-			int? source = 5;
+            Assert.AreEqual(true, result);
+        }
 
-			var result = source.IsNull();
+        [Test]
+        public void IsNotNullFalse()
+        {
+            int? source = null;
 
-			Assert.AreEqual(false, result);
-		}
+            var result = source.IsNotNull();
 
-		[TestMethod]
-		public void IsNotNullTrue()
-		{
-			int? source = 5;
-
-			var result = source.IsNotNull();
-
-			Assert.AreEqual(true, result);
-		}
-
-		[TestMethod]
-		public void IsNotNullFalse()
-		{
-			int? source = null;
-
-			var result = source.IsNotNull();
-
-			Assert.AreEqual(false, result);
-		}
-	}
+            Assert.AreEqual(false, result);
+        }
+    }
 }
