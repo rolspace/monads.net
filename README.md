@@ -1,6 +1,8 @@
 Monads for .NET
 ===============
 
+[![Build Status](https://travis-ci.org/rolspace/monads.net.svg?branch=master)](https://travis-ci.org/rolspace/monads.net)
+
 *(This version of the original [repository](https://github.com/sergeyzwezdin/monads.net) has been modified to support .NET Standard 1.6)*
 
 **Monads for .NET** is helpers for C# which makes easier every day of your developer life. Now supports .NET Standard 1.6.
