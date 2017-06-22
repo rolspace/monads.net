@@ -1,5 +1,4 @@
-Monads for .NET
-===============
+# monads.net
 
 [![Build Status](https://travis-ci.org/rolspace/monads.net.svg?branch=master)](https://travis-ci.org/rolspace/monads.net)
 
